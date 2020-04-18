@@ -2,7 +2,7 @@
 
 /*suma*/
 
-float suma(float num1, float num2, float* presultado)
+int suma(float num1, float num2, float* presultado)
 {
 	float total;
 	int retorno=1;
@@ -18,7 +18,7 @@ float suma(float num1, float num2, float* presultado)
 
 /*resta*/
 
-float resta(float num1, float num2, float* presultado)
+int resta(float num1, float num2, float* presultado)
 
 {
 	float total;
@@ -35,7 +35,7 @@ float resta(float num1, float num2, float* presultado)
 
 /*division*/
 
-float division(float num1, float num2, float* presultado)
+int division(float num1, float num2, float* presultado)
 
 {
 	float total;
@@ -52,7 +52,7 @@ float division(float num1, float num2, float* presultado)
 
 /*multiplicacion*/
 
-float multiplicacion(float num1, float num2, float* presultado)
+int multiplicacion(float num1, float num2, float* presultado)
 
 {
 	float total;
@@ -70,40 +70,38 @@ float multiplicacion(float num1, float num2, float* presultado)
 
 /*Factorial de num1*/
 
-float factorial_a(float num1, float* presultado)
+int factorial_a(float num1, float* presultado)
 
 {
-	float total;
-	int i, fact;
+	float fact = 1;
+	int i;
 	int retorno=1;
 
 	if(presultado != NULL && num1 != 0);
 	{
-        for(i=1; i<=num1;i++)
-        {
-            total = total * i;
-        }
-    *presultado=total;
+       for (i = num1; i > 1; i--){
+    fact = fact * i;
+}
+    *presultado=fact;
 	 retorno=0;
 	}
 	return retorno;
 }
 
 /*Factorial de num2*/
-float factorial_b(float num2, float* presultado)
+int factorial_b(float num2, float* presultado)
 
 {
-	float total;
-	int i, fact;
+	float fact = 1;
+	int i;
 	int retorno=1;
 
 	if(presultado != NULL && num2 != 0);
 	{
-        for(i=1; i<=num2;i++)
-        {
-            total = total * i;
-        }
-    *presultado=total;
+       for (i = num2; i > 1; i--){
+    fact = fact * i;
+}
+    *presultado=fact;
 	 retorno=0;
 	}
 	return retorno;
