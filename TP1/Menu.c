@@ -1,55 +1,60 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "utn.h"
+#include "aritmetica.h"
 
 int main(void) {
 
-	float numeroA;
-	float numeroB;
-	float resultadoSuma;
-	float resultadoResta;
-    float resultadoMultiplicacion;
-    float resultadoDivision;
-    float resultadoFactorialA;
-    float resultadoFactorialB;
-	int opcion;
-
-	opcion=0;
+	float a, b, resultado, resultado_b;
+	int respuesta, respuesta_b;
+	char c;
 	do{
 		setbuf(stdout, NULL);
-
-		printf("1. Ingresar el 1er operando:\n");
-		printf("2. Ingresar el 2do operando:\n");
-		printf("3. Calcular todas las operaciones\n");
-		printf("4. Informar resultados\n\n");
-		printf("5. Salir\n");
-		printf("Elija una opcion:");
-		scanf("%d", &opcion);
-
-		switch(opcion)
-		{
+		system("cls");
 		/*ingresa los numeros a tomar*/
-		case 1:
-			numeroA=get_Numero(numeroA);
-			printf("El numero es %f:\n\n", numeroA);
-			break;
-		case 2:
-            numeroB=get_Numero(numeroA);
-			printf("El numero es %f:\n\n", numeroB);
-			break;
-        case 3:
-            resultadoSuma=suma(numeroA,numeroB);
-            resultadoResta=resta(numeroA,numeroB);
-            resultadoMultiplicacion=multiplicacion(numeroA,numeroB);
-            resultadoDivision=division(numeroA,numeroB);
-            resultadoFactorialA=factorial(numeroA);
-            resultadoFactorialB=factorial(numeroB);
-            break;
-        case 4:
-             MuestraResultados(resultadoSuma,resultadoResta,resultadoMultiplicacion,resultadoDivision,resultadoFactorialA,resultadoFactorialB);
-             break;
+
+		printf("1 : ingrese operando A:");
+		scanf("%f", &a);
+		printf("2 : ingrese operando B:");
+		scanf("%f", &b);
+
+		/*Muestra los numero cargados*/
+		printf("El operando A es: %f y el operando B es: %f",a,b);
+
+		/*Ejecuta las funciones de calculo*/
+		respuesta=suma(a,b,&resultado);
+		if(respuesta==0)
+		{
+			printf("\nEl resultado de la suma de A+B es: %f", resultado);
+		};
+		respuesta=resta(a,b,&resultado);
+		if(respuesta == 0)
+		{
+			printf("\nEl resultado de la resta de A-B es: %f", resultado);
+		};
+		respuesta=multiplicacion(a,b,&resultado);
+		if(respuesta == 0)
+		{
+			printf("\nEl resultado de la multiplicacion de A*B es: %f", resultado);
+		};
+		respuesta=division(a,b,&resultado);
+		if(respuesta == 0)
+		{
+			printf("\nEl resultado de la division de A/B es: %f", resultado);
 		}
-	}while (opcion != 5);
+		else
+		{
+			printf("\nERROR: No se puede dividir por 0\n");
+			break;
+		}
+		respuesta=factorial(a,&resultado);
+		respuesta_b=factorial(b,&resultado_b);
+		if(respuesta == 0 && respuesta_b == 0)
+		{
+			printf("\nEl factorial del operando A es %f y el factorial de B es: %f",resultado, resultado_b);
+		}
+		printf("\n\nDesea continuar?");
+		scanf("%s",&c);
+	}while (c != 'n');
 	system("pause");
 	return EXIT_SUCCESS;
 }
