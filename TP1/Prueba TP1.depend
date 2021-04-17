@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1618625956 source:d:\programas\codeblocks\work\prueba tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1618625918 d:\programas\codeblocks\work\prueba tp1\utn.h
+
+1618622841 source:d:\programas\codeblocks\work\prueba tp1\utncalculos.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
